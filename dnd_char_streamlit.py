@@ -17,9 +17,6 @@ if 'ability_rolls' not in st.session_state:
         st.session_state['ability_rolls'] = roll_ability_scores()
 
 
-#if 'ability_rolls' not in st.session_state:
-#    st.session_state.key = roll_ability_scores()
-
 ability_rolls = st.session_state['ability_rolls'] = st.session_state['ability_rolls']
 
 ability_col, class_col, ability_assign_col = st.columns(3)
