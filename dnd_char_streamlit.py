@@ -12,12 +12,21 @@ def roll_ability_scores():
         return [sum(sorted(r)[1:]) for r in rolls] 
 
 
+
+if 'ability_rolls' not in st.session_state:
+        st.session_state['ability_rolls'] = roll_ability_scores()
+
+
+#if 'ability_rolls' not in st.session_state:
+#    st.session_state.key = roll_ability_scores()
+
+ability_rolls = st.session_state['ability_rolls'] = st.session_state['ability_rolls']
+
 ability_col, class_col, ability_assign_col = st.columns(3)
 
 with ability_col:
-        ability_rolls = roll_ability_scores()
-        ability_rolls_copy = ability_rolls.copy()
-        st.write(ability_rolls_copy)
+               
+        st.write(ability_rolls)
 
 with class_col:
         class_choices = (
@@ -141,7 +150,7 @@ with ability_assign_col:
         ability_names = ['strength', 'dexterity', 'constitution', 'intelligence', 'wisdom', 'charisma']
 
         
-        ability_values = [ability_rolls_copy[i] for i in ability_positions[class_choice]]
+        ability_values = [ability_rolls[i] for i in ability_positions[class_choice]]
         abilities = dict(zip(ability_names, ability_values))
 
 
