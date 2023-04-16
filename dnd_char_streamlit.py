@@ -14,7 +14,7 @@ def roll_ability_scores():
 
 
 if 'ability_rolls' not in st.session_state:
-        st.session_state['ability_rolls'] = roll_ability_scores()
+        st.session_state['ability_rolls'] =sorted(roll_ability_scores(),reverse=True)
 
 
 ability_rolls = st.session_state['ability_rolls'] = st.session_state['ability_rolls']
